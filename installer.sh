@@ -2,6 +2,8 @@
 
 clear
 
+### Line ##
+SPLIT=$(printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -)
 ### Colors ##
 ESC=$(printf '\033') RESET="${ESC}[0m" BLACK="${ESC}[30m" RED="${ESC}[31m"
 GREEN="${ESC}[32m" YELLOW="${ESC}[33m" BLUE="${ESC}[34m" MAGENTA="${ESC}[35m"
@@ -133,7 +135,8 @@ fn_fail() { echo "Wrong option." exit 1; }
 
 sub-submenu() {
     echo -ne "
-$(yellowprint 'Install Programs')
+$(yellowprint 'PROGRAMS')
+$(yellowprint "$SPLIT")
 $(greenprint '1)') Basic Software
 $(greenprint '2)') User backup
 $(greenprint '3)') SSH lock
@@ -142,6 +145,7 @@ $(greenprint '5)') Docker
 $(blueprint '6)') Back
 $(magentaprint '7)') MAIN MENU
 $(redprint '0)') Exit
+$(yellowprint "$SPLIT")
 Choose an option:  "
     read -r ans
     case $ans in
@@ -194,13 +198,15 @@ Choose an option:  "
 
 sub2-submenu() {
     echo -ne "
-$(yellowprint 'Installing Bootstrap scripts')
+$(yellowprint 'BOOTSTRAP')
+$(yellowprint "$SPLIT")
 $(greenprint '1)') Basic
 $(greenprint '2)') Simple
 $(greenprint '3)') Full
 $(blueprint '4)') Back
 $(magentaprint '5)') MAIN MENU
 $(redprint '0)') Exit
+$(yellowprint "$SPLIT")
 Choose an option:  "
     read -r ans
     case $ans in
@@ -239,10 +245,12 @@ Choose an option:  "
 submenu() {
     echo -ne "
 $(blueprint 'INSTALL')
+$(yellowprint "$SPLIT")
 $(greenprint '1)') Install Programs
 $(greenprint '2)') Bootstrap script
 $(magentaprint '3)') Back
 $(redprint '0)') Exit
+$(yellowprint "$SPLIT")
 Choose an option:  "
     read -r ans
     case $ans in
@@ -272,9 +280,11 @@ Choose an option:  "
 infomenu() {
     echo -ne "
 $(magentaprint 'INFO')
+$(yellowprint "$SPLIT")
 $(greenprint '1)') Read more abou the script
 $(magentaprint '2)') Back
 $(redprint '0)') Exit
+$(yellowprint "$SPLIT")
 Choose an option:  "
     read -r ans
     case $ans in
@@ -299,9 +309,11 @@ Choose an option:  "
 mainmenu() {
     echo -ne "
 $(magentaprint 'BOOTSTRAP INSTALLER')
+$(yellowprint "$SPLIT")
 $(greenprint '1)') Install
 $(greenprint '2)') Info
 $(redprint '0)') Exit
+$(yellowprint "$SPLIT")
 Choose an option:  "
     read -r ans
     case $ans in
