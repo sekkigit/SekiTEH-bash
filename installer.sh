@@ -207,17 +207,17 @@ Choose an option:  "
     1)
         clear;
         fn_basic
-        sub-submenu
+        sub2-submenu
         ;;
     2)
         clear;
         fn_simple
-        sub-submenu
+        sub2-submenu
         ;;
     3)
         clear;
         fn_full
-        sub-submenu
+        sub2-submenu
         ;;
     4)
         clear;
