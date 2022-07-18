@@ -148,26 +148,31 @@ Choose an option:  "
     1)
         clear;
         fn_basicapp
+        clear;
         sub-submenu
         ;;
     2)
         clear;
         fn_backup
+        clear;
         sub-submenu
         ;;
     3)
         clear;
         fn_sshconf
+        clear;
         sub-submenu
         ;;
     4)
         clear;
         fn_autorun
+        clear;
         sub-submenu
         ;;
     5)
         clear;
         fn_docker
+        clear;
         sub-submenu
         ;;
     6)
