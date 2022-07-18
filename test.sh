@@ -22,7 +22,7 @@ while true; do
         read -p "Do you wish run Basic installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "BASIC"; break;;
+            [Yy]* ) bash basic-install ; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -34,7 +34,7 @@ while true; do
         read -p "Do you wish run Simple installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "SIMPLE"; break;;
+            [Yy]* ) bash simple-install; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -46,7 +46,7 @@ while true; do
         read -p "Do you wish run Full installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "FULL"; break;;
+            [Yy]* ) bash full-install; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -60,7 +60,7 @@ while true; do
         read -p "Do you wish run Crontask installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "AUTORUN"; break;;
+            [Yy]* ) bash ./autorun/crontask.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -72,7 +72,7 @@ while true; do
         read -p "Do you wish run Backup installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "BACKUP"; break;;
+            [Yy]* ) bash ./backup/create_backup.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -84,7 +84,7 @@ while true; do
         read -p "Do you wish run Basic software installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "BASIC APP"; break;;
+            [Yy]* ) bash ./basic_apps/basic.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -96,7 +96,7 @@ while true; do
         read -p "Do you wish run SSH installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "SSH LOCK"; break;;
+            [Yy]* ) bash ./ssh_conf/ssh_config.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -108,7 +108,7 @@ while true; do
         read -p "Do you wish run Docker installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "DOCKER"; break;;
+            [Yy]* ) bash ./docker_install/docker_install.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -120,7 +120,7 @@ while true; do
         read -p "Do you wish run UFW installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) echo "UFW"; break;;
+            [Yy]* ) bash ./ufw_install/ufw_basic_install.sh; break;;
             [Nn]* ) exit;;
             * ) echo "Please answer yes or no.";;
           esac
@@ -273,7 +273,7 @@ Choose an option:  "
     case $ans in
     1)
         clear;
-        echo "INFO"
+        cat README.md
         mainmenu
         ;;
     2)
