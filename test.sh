@@ -273,7 +273,7 @@ Choose an option:  "
     case $ans in
     1)
         clear;
-        cat README.md
+        cat info
         mainmenu
         ;;
     2)
