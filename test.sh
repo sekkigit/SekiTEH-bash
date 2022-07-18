@@ -13,34 +13,211 @@ redprint() { printf "${RED}%s${RESET}\n" "$1"; }
 yellowprint() { printf "${YELLOW}%s${RESET}\n" "$1"; }
 magentaprint() { printf "${MAGENTA}%s${RESET}\n" "$1"; }
 cyanprint() { printf "${CYAN}%s${RESET}\n" "$1"; }
-fn_goodafternoon() { echo; echo "Good afternoon."; }
-fn_goodmorning() { echo; echo "Good morning."; }
-fn_bye() { echo "Bye bye."; exit 0; }
+
+### Installer Functions #######################################
+
+# Basic install
+fn_basic() { echo; 
+while true; do
+        read -p "Do you wish run Basic installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "BASIC"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Simple install
+fn_simple() { echo; 
+while true; do
+        read -p "Do you wish run Simple installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "SIMPLE"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Full install
+fn_full() { echo; 
+while true; do
+        read -p "Do you wish run Full installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "FULL"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+### Program Function #######################################
+
+# Crontask autotask
+fn_autorun() { echo; 
+while true; do
+        read -p "Do you wish run Crontask installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "AUTORUN"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Backup autotask
+fn_backup() { echo; 
+while true; do
+        read -p "Do you wish run Backup installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "BACKUP"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Basic software
+fn_basicapp() { echo; 
+while true; do
+        read -p "Do you wish run Basic software installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "BASIC APP"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Lock SSH
+fn_sshconf() { echo; 
+while true; do
+        read -p "Do you wish run SSH installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "SSH LOCK"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Docker and Docker-compose
+fn_docker() { echo; 
+while true; do
+        read -p "Do you wish run Docker installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "DOCKER"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+# Firewall UFW
+fn_ufw() { echo; 
+while true; do
+        read -p "Do you wish run UFW installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) echo "UFW"; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
+fn_bye() { echo "Exiting installer."; exit 0; }
 fn_fail() { echo "Wrong option." exit 1; }
 
 sub-submenu() {
     echo -ne "
-$(yellowprint 'SUB-SUBMENU')
-$(greenprint '1)') GOOD MORNING
-$(greenprint '2)') GOOD AFTERNOON
-$(blueprint '3)') Go Back to SUBMENU
-$(magentaprint '4)') Go Back to MAIN MENU
+$(yellowprint 'Install Programs')
+$(greenprint '1)') Basic Software
+$(greenprint '2)') User backup
+$(greenprint '3)') SSH lock
+$(greenprint '4)') Crontask
+$(greenprint '5)') Docker
+$(blueprint '6)') Back
+$(magentaprint '7)') MAIN MENU
 $(redprint '0)') Exit
 Choose an option:  "
     read -r ans
     case $ans in
     1)
-        fn_goodmorning
+        clear;
+        fn_basicapp
         sub-submenu
         ;;
     2)
-        fn_goodafternoon
+        clear;
+        fn_backup
         sub-submenu
         ;;
     3)
-        submenu
+        clear;
+        fn_sshconf
+        sub-submenu
         ;;
     4)
+        clear;
+        fn_autorun
+        sub-submenu
+        ;;
+    5)
+        clear;
+        fn_docker
+        sub-submenu
+        ;;
+    6)
+        clear;
+        submenu
+        ;;
+    7)
+        clear;
+        mainmenu
+        ;;
+    0)
+        fn_bye
+        ;;
+    *)
+        fn_fail
+        ;;
+    esac
+}
+
+sub2-submenu() {
+    echo -ne "
+$(yellowprint 'Installing Bootstrap scripts')
+$(greenprint '1)') Basic
+$(greenprint '2)') Simple
+$(greenprint '3)') Full
+$(blueprint '4)') Back
+$(magentaprint '5)') MAIN MENU
+$(redprint '0)') Exit
+Choose an option:  "
+    read -r ans
+    case $ans in
+    1)
+        clear;
+        fn_basic
+        sub-submenu
+        ;;
+    2)
+        clear;
+        fn_simple
+        sub-submenu
+        ;;
+    3)
+        clear;
+        fn_full
+        sub-submenu
+        ;;
+    4)
+        clear;
+        submenu
+        ;;
+    5)
+        clear;
         mainmenu
         ;;
     0)
@@ -54,19 +231,54 @@ Choose an option:  "
 
 submenu() {
     echo -ne "
-$(blueprint 'CMD1 SUBMENU')
-$(greenprint '1)') SUBCMD1
-$(magentaprint '2)') Go Back to Main Menu
+$(blueprint 'Install Programs')
+$(greenprint '1)') Install Programs
+$(greenprint '2)') Bootstrap script
+$(magentaprint '3)') Back
 $(redprint '0)') Exit
 Choose an option:  "
     read -r ans
     case $ans in
     1)
+        clear;
         sub-submenu
         submenu
         ;;
     2)
-        menu
+        clear;
+        sub2-submenu
+        submenu
+        ;;
+    3)
+        clear;
+        mainmenu
+        ;;
+    0)
+        fn_bye
+        ;;
+    *)
+        fn_fail
+        ;;
+    esac
+}
+
+infomenu() {
+    echo -ne "
+$(magentaprint 'Info')
+$(greenprint '1)') Read more abou the script
+$(magentaprint '2)') Back
+$(redprint '0)') Exit
+Choose an option:  "
+    read -r ans
+    case $ans in
+    1)
+        clear;
+        echo "INFO"
+        mainmenu
+        ;;
+    2)
+        clear;
+        mainmenu
         ;;
     0)
         fn_bye
@@ -80,13 +292,20 @@ Choose an option:  "
 mainmenu() {
     echo -ne "
 $(magentaprint 'MAIN MENU')
-$(greenprint '1)') CMD1
+$(greenprint '1)') Install
+$(greenprint '2)') Info
 $(redprint '0)') Exit
 Choose an option:  "
     read -r ans
     case $ans in
     1)
+        clear;
         submenu
+        mainmenu
+        ;;
+    2)
+        clear;
+        infomenu
         mainmenu
         ;;
     0)
