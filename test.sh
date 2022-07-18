@@ -231,7 +231,7 @@ Choose an option:  "
 
 submenu() {
     echo -ne "
-$(blueprint 'Install Programs')
+$(blueprint 'INSTALL')
 $(greenprint '1)') Install Programs
 $(greenprint '2)') Bootstrap script
 $(magentaprint '3)') Back
@@ -264,7 +264,7 @@ Choose an option:  "
 
 infomenu() {
     echo -ne "
-$(magentaprint 'Info')
+$(magentaprint 'INFO')
 $(greenprint '1)') Read more abou the script
 $(magentaprint '2)') Back
 $(redprint '0)') Exit
@@ -291,7 +291,7 @@ Choose an option:  "
 
 mainmenu() {
     echo -ne "
-$(magentaprint 'MAIN MENU')
+$(magentaprint 'BOOTSTRAP INSTALLER')
 $(greenprint '1)') Install
 $(greenprint '2)') Info
 $(redprint '0)') Exit
