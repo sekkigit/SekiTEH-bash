@@ -10,7 +10,7 @@ usermod -aG docker,adm "${SUDO_USER:-$USER}"
 cat <<EOF >> /etc/cron.d/crontask
 25 5 * * * root    docker system prune -a -f
 EOF
-crontab -u /etc/cron.d/crontask
+crontab -u "${SUDO_USER:-$USER}" /etc/cron.d/crontask
 
 echo "Docker is $(systemctl is-enabled docker) and $(systemctl is-active docker). Docker system prune automated."
 sleep 3s
