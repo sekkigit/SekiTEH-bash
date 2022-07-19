@@ -15,3 +15,6 @@ cat <<EOF >> /etc/cron.d/crontask
 EOF
 crontab -u "${SUDO_USER:-$USER}" /etc/cron.d/crontask
 systemctl reload crowdsec
+
+echo "Crowdsec is $(systemctl is-enabled crowdsec) and $(systemctl is-active crowdsec). Crowdsec update automated."
+sleep 2s

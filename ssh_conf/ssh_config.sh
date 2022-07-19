@@ -31,3 +31,6 @@ echo ""
             * ) echo "Please answer Yes or No.";;
           esac
         done
+
+echo "SSH configuration is done."
+sleep 2s

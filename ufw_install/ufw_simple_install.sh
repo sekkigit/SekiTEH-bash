@@ -11,3 +11,6 @@ ufw allow 80/tcp   #HTTP
 ufw allow 443/tcp  #HTTPS
 ufw limit from "$SUBNET" to any port 9090 proto tcp #COCKPIT
 ufw --force enable
+
+echo "UFW is $(systemctl is-enabled ufw) and $(systemctl is-active ufw)."
+sleep 2s

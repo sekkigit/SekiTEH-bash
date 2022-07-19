@@ -24,3 +24,7 @@ EOF
 netplan apply
 service cockpit start
 systemctl start cockpit
+
+echo "Cockpit is $(systemctl is-enabled cockpit) and $(systemctl is-active cockpit)"
+sleep 2s
+

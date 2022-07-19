@@ -34,3 +34,7 @@ cat <<EOF >> /etc/cron.d/crontask
 EOF
 crontab -u "${SUDO_USER:-$USER}" /etc/cron.d/crontask
 bash /backup-task/backup-daily.sh
+
+crontab -l
+echo "Backup started"
+sleep 2s

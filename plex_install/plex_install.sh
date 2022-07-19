@@ -23,3 +23,6 @@ ports=32400/tcp|3005/tcp|5353/udp|8324/tcp|32410:32414/udp|1900/udp|32469/tcp
 EOF
 
 systemctl restart plexmediaserver
+
+echo "Plex is $(systemctl is-enabled plexmediaserver) and $(systemctl is-active plexmediaserver)."
+sleep 2s
