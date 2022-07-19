@@ -23,7 +23,7 @@ cyanprint() { printf "${CYAN}%s${RESET}\n" "$1"; }
 # Basic install
 fn_basic() { echo; 
 while true; do
-        read -p "Do you wish run Basic installation? 
+        read -r -p "Do you wish run Basic installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./basic-install.sh; break;;
@@ -35,7 +35,7 @@ done }
 # Simple install
 fn_simple() { echo; 
 while true; do
-        read -p "Do you wish run Simple installation? 
+        read -r -p "Do you wish run Simple installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./simple-install.sh; break;;
@@ -47,7 +47,7 @@ done }
 # Full install
 fn_full() { echo; 
 while true; do
-        read -p "Do you wish run Full installation? 
+        read -r -p "Do you wish run Full installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./full-install.sh; break;;
@@ -61,7 +61,7 @@ done }
 # Crontask autotask
 fn_autorun() { echo; 
 while true; do
-        read -p "Do you wish run Crontask installation? 
+        read -r -p "Do you wish run Crontask installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./autorun/crontask.sh; break;;
@@ -73,7 +73,7 @@ done }
 # Backup autotask
 fn_backup() { echo; 
 while true; do
-        read -p "Do you wish run Backup installation? 
+        read -r -p "Do you wish run Backup installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./backup/create_backup.sh; break;;
@@ -85,7 +85,7 @@ done }
 # Basic software
 fn_basicapp() { echo; 
 while true; do
-        read -p "Do you wish run Basic software installation? 
+        read -r -p "Do you wish run Basic software installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./basic_apps/basic.sh; break;;
@@ -97,7 +97,7 @@ done }
 # Lock SSH
 fn_sshconf() { echo; 
 while true; do
-        read -p "Do you wish run SSH installation? 
+        read -r -p "Do you wish run SSH installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./ssh_conf/ssh_config.sh; break;;
@@ -109,7 +109,7 @@ done }
 # Docker and Docker-compose
 fn_docker() { echo; 
 while true; do
-        read -p "Do you wish run Docker installation? 
+        read -r -p "Do you wish run Docker installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./docker_install/docker_install.sh; break;;
@@ -121,7 +121,7 @@ done }
 # Firewall UFW
 fn_ufw() { echo; 
 while true; do
-        read -p "Do you wish run UFW installation? 
+        read -r -p "Do you wish run UFW installation? 
 Yes | No --> " yn
         case $yn in
             [Yy]* ) bash ./ufw_install/ufw_basic_install.sh; break;;
