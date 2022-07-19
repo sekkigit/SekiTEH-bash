@@ -7,5 +7,5 @@ apt install btop -y
 apt upgrade -y
 
 echo "Cron, Nano and Btop installed"
-sleep 2s
+sleep 3s
 

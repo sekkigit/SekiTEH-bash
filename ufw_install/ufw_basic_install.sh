@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install ufw -y
+apt install ufw -y
 
 ufw default reject incoming
 ufw default allow outgoing

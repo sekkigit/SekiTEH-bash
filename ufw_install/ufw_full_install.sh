@@ -2,7 +2,7 @@
 
 SUBNET=$(ip -o -f inet addr show | awk '/scope global/ {printf "%s ", $4}' | awk '{print $1}')
 
-sudo apt install ufw -y
+apt install ufw -y
 
 ufw default reject incoming
 ufw default allow outgoing

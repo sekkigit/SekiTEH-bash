@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+apt remove needrestart -y
 clear
 
 ### Line ##

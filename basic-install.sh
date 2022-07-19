@@ -134,7 +134,6 @@ bash ./ssh_conf/ssh_config.sh
 
 echo -e "$COLOR SSH configuration is done.$ENDCOLOR"
 echo
-sleep 3s
 
 #LOG
 banner "    D O N E"
