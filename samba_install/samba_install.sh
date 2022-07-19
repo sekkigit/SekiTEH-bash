@@ -36,4 +36,4 @@ systemctl start smbd
 systemctl restart smbd nmbd
 
 echo "Samba is $(systemctl is-enabled smbd) and $(systemctl is-active smbd)"
-sleep 2s
+sleep 3s

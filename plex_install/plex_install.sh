@@ -25,4 +25,4 @@ EOF
 systemctl restart plexmediaserver
 
 echo "Plex is $(systemctl is-enabled plexmediaserver) and $(systemctl is-active plexmediaserver)."
-sleep 2s
+sleep 3s

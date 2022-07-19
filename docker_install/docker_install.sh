@@ -12,5 +12,6 @@ cat <<EOF >> /etc/cron.d/crontask
 EOF
 crontab -u "${SUDO_USER:-$USER}" /etc/cron.d/crontask
 
+su "${SUDO_USER:-$USER}"  crontab -l
 echo "Docker is $(systemctl is-enabled docker) and $(systemctl is-active docker). Docker system prune automated."
-sleep 2s
+sleep 3s

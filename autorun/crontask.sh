@@ -5,5 +5,5 @@ cat <<EOF >> /etc/cron.d/crontask
 EOF
 crontab -u "${SUDO_USER:-$USER}" /etc/cron.d/crontask
 
-crontab -l
-sleep 2s
+su "${SUDO_USER:-$USER}" crontab -l
+sleep 3s

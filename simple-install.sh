@@ -67,6 +67,7 @@ basic(){
 }
 basic
 
+echo -e "$COLOR Installed: Cron, Nano, Btop, Updated $ENDCOLOR"
 ##################################################################
 banner2 "    C R O N T A S K"
 
@@ -85,6 +86,7 @@ crontask(){
 }
 crontask
 
+echo -e "$COLOR Auto Update and Upgrade turned ON.$ENDCOLOR"
 ##################################################################
 banner2 "    D O C K E R"
 
@@ -103,6 +105,8 @@ docker(){
 }
 docker
 
+echo -e "$COLOR Docker is $(systemctl is-enabled docker) and $(systemctl is-active docker).
+ Docker system prune automated.$ENDCOLOR"
 ##################################################################
 banner2 "    C R O W D S E C"
 
@@ -121,6 +125,8 @@ crowdsec(){
 }
 crowdsec
 
+echo -e "$COLOR Crowdsec is $(systemctl is-enabled crowdsec) and $(systemctl is-active crowdsec).
+ Crowdsec update automated.$ENDCOLOR"
 ##################################################################
 banner2 "    C O C K P I T "
 
@@ -139,6 +145,7 @@ cockpit(){
 }
 cockpit
 
+echo -e "$COLOR Cockpit is $(systemctl is-enabled cockpit) and $(systemctl is-active cockpit).$ENDCOLOR"
 ##################################################################
 banner2 "    U F W - F I R E W A L L"
 
@@ -157,6 +164,7 @@ backup(){
 }
 backup
 
+echo -e "$COLOR UFW is $(systemctl is-enabled ufw) and $(systemctl is-active ufw).$ENDCOLOR"
 ##################################################################
 banner2 "    B A C K U P"
 
@@ -175,11 +183,14 @@ backup(){
 }
 backup
 
+echo -e "$COLOR Backing up every Day/Week/Month to the /backup.$ENDCOLOR"
+echo
 ##################################################################
 banner2 "    L O C K  S S H"
 
 bash ./ssh_conf/ssh_config.sh
 
+echo -e "$COLOR SSH configuration is done.$ENDCOLOR"
 echo
 sleep 3s
 

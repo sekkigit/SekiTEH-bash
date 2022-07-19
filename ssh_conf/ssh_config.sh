@@ -33,4 +33,4 @@ echo ""
         done
 
 echo "SSH configuration is done."
-sleep 2s
+sleep 3s
