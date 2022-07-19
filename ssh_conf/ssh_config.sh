@@ -32,5 +32,4 @@ echo ""
           esac
         done
 
-echo "SSH configuration is done."
-sleep 3s
+sleep 2s
