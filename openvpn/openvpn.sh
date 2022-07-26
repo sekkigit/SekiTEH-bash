@@ -8,6 +8,7 @@ ORG="SekiTEH"
 EMAIL="info@sekiteh.xyz"
 PUBIP=$(curl ifconfig.me)
 NETADAPT=$(ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//")
+COMPANY="name"
 
 apt remove needrestart -y
 
@@ -39,7 +40,7 @@ set_var EASYRSA_REQ_CITY        "$CITY"
 set_var EASYRSA_REQ_ORG         "$ORG"
 set_var EASYRSA_REQ_EMAIL       "$EMAIL"
 set_var EASYRSA_REQ_OU          "RD"
-set_var EASYRSA_KEY_SIZE        4096
+set_var EASYRSA_KEY_SIZE        2048 #4096
 EOF
 
 # Initialize the PKI Structure for EasyRSA
@@ -63,10 +64,12 @@ echo
 sleep 5s
 
 # Create your OpenVPN server certificate request, sign the request, and generate the key and copy to OpenVPN
-/etc/easy-rsa/easyrsa gen-req convect-vpn nopass                     # press enter at Common Name
-echo yes | /etc/easy-rsa/easyrsa sign-req server convect-vpn         # type yes
+/etc/easy-rsa/easyrsa gen-req "$COMPANY"-vpn nopass                     # press enter at Common Name
+sleep 5s
+echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn         # type yes
                                                                      # On NEW ubuntu it will ask you to set password
-cp /home/"${SUDO_USER:-$USER}"/{pki/issued/convect-vpn.crt,pki/private/convect-vpn.key,pki/ca.crt} /etc/openvpn/
+cp /home/"${SUDO_USER:-$USER}"/{pki/issued/"$COMPANY"-vpn.crt,pki/private/"$COMPANY"-vpn.key,pki/ca.crt} /etc/openvpn/
+sleep 5s
 
 # Create the Encryption Key that will be used during the key exchange, create a HMAC signature to further strengthen TLS in OpenVPN
 /etc/easy-rsa/easyrsa gen-dh                                         # this can take up to 10-15 min
@@ -81,18 +84,18 @@ mkdir -p /etc/openvpn/client-configs/{files,keys}
 
 ###################################
 # on old ubuntu let this 3 lines
-#cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/convect-vpn.conf.gz
+#cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/"$COMPANY"-vpn.conf.gz
 #cd /etc/openvpn/
-#gunzip convect-vpn.conf.gz
+#gunzip "$COMPANY"-vpn.conf.gz
 
 # on NEW ubuntu comment above 3 lines and uncomment below one
-cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/convect-vpn.conf
+cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/"$COMPANY"-vpn.conf
 ###################################
 
 cp /home/"${SUDO_USER:-$USER}"/{ta.key,pki/ca.crt} /etc/openvpn/client-configs/keys/
 groupadd nobody                                                     # if you use nobody group in config this must be applyed
 
-cat <<EOF > /etc/openvpn/convect-vpn.conf
+cat <<EOF > /etc/openvpn/"$COMPANY"-vpn.conf
 ;local a.b.c.d
 port 1194
 ;proto tcp
@@ -101,8 +104,8 @@ proto udp
 dev tun
 ;dev-node MyTap
 ca ca.crt
-cert convect-vpn.crt
-key convect-vpn.key 
+cert "$COMPANY"-vpn.crt
+key "$COMPANY"-vpn.key 
 dh dh.pem
 ;topology subnet
 server 10.8.0.0 255.255.255.0
@@ -225,7 +228,7 @@ echo "Generating new Certificate Revocation List (CRL)."
 cd \$EASYRSA_DIR
 /etc/easy-rsa/easyrsa gen-crl
 cp \$EASYRSA_DIR/pki/crl.pem \$OPENVPN_DIR/crl.pem
-systemctl restart openvpn@convect-vpn
+systemctl restart openvpn@"$COMPANY"-vpn
 
 sleep 5
 
@@ -267,8 +270,8 @@ cp \$EASYRSA_DIR/pki/crl.pem \$OPENVPN_DIR/
 
 echo "Restarting VPN service to update CRL"
 
-systemctl restart openvpn@convect-vpn
-echo -e "\e[92m OpenVPN is \$(systemctl is-enabled openvpn@convect-vpn) and \$(systemctl is-active openvpn@convect-vpn). \e[0m"
+systemctl restart openvpn@"$COMPANY"-vpn
+echo -e "\e[92m OpenVPN is \$(systemctl is-enabled openvpn@"$COMPANY"-vpn) and \$(systemctl is-active openvpn@"$COMPANY"-vpn). \e[0m"
 
 sleep 5
 
@@ -297,13 +300,13 @@ iptables -t nat -I POSTROUTING -s 10.8.0.0/16 -d 10.0.0.0/16 -o "$NETADAPT" -j M
 iptables-save
 
 # Start OpenVPN
-systemctl start openvpn@convect-vpn
-systemctl enable openvpn@convect-vpn
+systemctl start openvpn@"$COMPANY"-vpn
+systemctl enable openvpn@"$COMPANY"-vpn
 
 sleep 2s
 
 # Create user
 /root/create_vpn_user "$ADMINUSER"
 
-echo -e "\e[92m OpenVPN is $(systemctl is-enabled openvpn@convect-vpn) and $(systemctl is-active openvpn@convect-vpn). \e[0m"
+echo -e "\e[92m OpenVPN is $(systemctl is-enabled openvpn@"$COMPANY"-vpn) and $(systemctl is-active openvpn@"$COMPANY"-vpn). \e[0m"
 sleep 3s
