@@ -20,6 +20,8 @@ echo deb http://build.openvpn.net/debian/openvpn/stable bionic main | tee /etc/a
 # Update apt and install OpenVPN
 apt update && apt install openvpn -y
 
+cd /home/"${SUDO_USER:-$USER}"
+
 # Download & extract EasyRSA
 mkdir /etc/easy-rsa
 wget https://github.com/OpenVPN/easy-rsa/releases/download/v3.0.6/EasyRSA-unix-v3.0.6.tgz 
@@ -27,6 +29,7 @@ tar xf EasyRSA-unix-v3.0.6.tgz -C /etc/easy-rsa
 mv /etc/easy-rsa/EasyRSA-v3.0.6/* /etc/easy-rsa
 rm -rf /etc/easy-rsa/EasyRSA-v3.0.6
 rm EasyRSA-unix-v3.0.6.tgz
+
 
 # Configure your EasyRSA environment variables file
 cat <<EOF > /etc/easy-rsa/vars
