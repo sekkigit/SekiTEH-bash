@@ -3,7 +3,7 @@
 For Ubuntu 22.04 LTS minimaized install
 
 <p align="center">
-  <img width="500" height="500" src="https://sekkigit.github.io/porfolio.sekiteh/img/works/4.jpg">
+  <img width="500" height="500" src="https://porfolio.sekiteh.xyz/img/works/4.jpg">
 </p>
 
 ```
