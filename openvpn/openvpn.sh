@@ -66,8 +66,9 @@ sleep 5s
 # Create your OpenVPN server certificate request, sign the request, and generate the key and copy to OpenVPN
 /etc/easy-rsa/easyrsa gen-req "$COMPANY"-vpn nopass                     # press enter at Common Name
 sleep 5s
-echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn         # type yes
+echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn nopass       # type yes
                                                                      # On NEW ubuntu it will ask you to set password
+sleep 10s
 cp /home/"${SUDO_USER:-$USER}"/{pki/issued/"$COMPANY"-vpn.crt,pki/private/"$COMPANY"-vpn.key,pki/ca.crt} /etc/openvpn/
 sleep 5s
 
