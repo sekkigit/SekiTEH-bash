@@ -137,7 +137,7 @@ while true; do
         read -r -p "Do you wish run OpenVPN installation? 
 Yes | No --> " yn
         case $yn in
-            [Yy]* ) bash ./openvpn/openvpn.sh; break;;
+            [Yy]* ) bash ./openvpn/openvpn.sh && ufw allow 1194/udp; break;;
             [Nn]* ) clear; sub-submenu;;
             * ) echo "Please answer yes or no.";;
           esac
