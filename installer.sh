@@ -131,6 +131,18 @@ Yes | No --> " yn
           esac
 done }
 
+# OpenVPN
+fn_openvpn() { echo; 
+while true; do
+        read -r -p "Do you wish run OpenVPN installation? 
+Yes | No --> " yn
+        case $yn in
+            [Yy]* ) bash ./openvpn/openvpn.sh; break;;
+            [Nn]* ) clear; sub-submenu;;
+            * ) echo "Please answer yes or no.";;
+          esac
+done }
+
 fn_bye() { echo "Exiting installer."; exit 0; }
 fn_fail() { echo "Wrong option." exit 1; }
 
@@ -143,8 +155,9 @@ $(greenprint '2)') User backup
 $(greenprint '3)') SSH lock
 $(greenprint '4)') Crontask
 $(greenprint '5)') Docker
-$(blueprint '6)') Back
-$(magentaprint '7)') MAIN MENU
+$(greenprint '6)') OpenVPN
+$(blueprint '7)') Back
+$(magentaprint '8)') MAIN MENU
 $(redprint '0)') Exit
 $(yellowprint "$SPLIT")
 Choose an option:  "
@@ -182,9 +195,15 @@ Choose an option:  "
         ;;
     6)
         clear;
-        submenu
+        fn_openvpn
+        clear;
+        sub-submenu
         ;;
     7)
+        clear;
+        submenu
+        ;;
+    8)
         clear;
         mainmenu
         ;;
