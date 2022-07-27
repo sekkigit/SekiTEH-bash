@@ -3,7 +3,7 @@
 For Ubuntu 22.04 LTS minimaized install
 
 <p align="center">
-  <img width="500" height="500" src="https://porfolio.sekiteh.xyz/img/works/4.jpg">
+  <img width="500" height="500" src="https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/works/5.jpg?raw=true">
 </p>
 
 ```
@@ -12,3 +12,47 @@ sudo apt install git -y
 git clone https://github.com/sekkigit/custom_homelab.git install && cd install
 sudo bash installer.sh
 ```
+# Script can install: 
+
+   - OpenVPN               > create a vpn server with user and SSL certificate
+   - Samba                 > enables Linux / Unix machines to communicate with Windows machines in a network.
+   - Cockpit               > graphical interface to administer servers
+   - CrowdSec              > analyze behaviors, respond to attacks & share signals across the community
+   - Docker-compose        > tool that help define and share multi-container applications
+   - Docker                > enables you to separate your applications from your infrastructure
+   - Plex                  > find and access all the media 
+   - Automate backup       > back up your files every day/weak/month automatically
+   - Lock SSH              > Lock SSH session, accept only your KEY, forbid access from root...
+   - Basic apps            > Nano, Btop, Cron
+   - UFW rules             > enable and edit rules un UFW firewall
+
+
+# There are tree bootstrap scripts to choose from
+------------------------
+SIMPLE Install
+  - Nano
+  - Btop
+  - Cron
+  - Docker
+------------------------
+BASIC Install
+  - Nano
+  - Btop
+  - Cron
+  - Docker
+  - Crowdsec
+  - Cockpit
+  - UFW
+------------------------
+FULL Install
+  - Nano
+  - Btop
+  - Cron
+  - Docker
+  - Crowdsec
+  - Cockpit
+  - UFW
+  - Samba
+  - Plex
+
+
