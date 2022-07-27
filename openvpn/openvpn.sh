@@ -55,6 +55,7 @@ echo
 
 sleep 2s
 # Create the CA Certificate
+echo -e "\e[92m 25 sec to enter pass \e[0m"
 echo {,} | /etc/easy-rsa/easyrsa build-ca nopass                                    # On NEW ubuntu it will ask you to set password  
 sleep 25s
                                                                                     # press enter at Common Name
@@ -67,6 +68,7 @@ echo
 # Create your OpenVPN server certificate request, sign the request, and generate the key and copy to OpenVPN
 echo {,} | /etc/easy-rsa/easyrsa gen-req "$COMPANY"-vpn nopass                      # press enter at Common Name
 sleep 2s
+echo -e "\e[92m 20 sec to enter pass \e[0m"
 echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn nopass              # type yes
                                                                                     # On NEW ubuntu it will ask you to set password
 sleep 20s
@@ -76,6 +78,7 @@ cp /home/"${SUDO_USER:-$USER}"/{pki/issued/"$COMPANY"-vpn.crt,pki/private/"$COMP
 /etc/easy-rsa/easyrsa gen-dh                                                        # this can take up to 10-15 min
 sleep 2s
 
+echo -e "\e[92m 20 sec to enter pass \e[0m"
 /etc/easy-rsa/easyrsa gen-crl
 sleep 20s
 
