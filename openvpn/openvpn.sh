@@ -21,7 +21,6 @@ echo deb http://build.openvpn.net/debian/openvpn/stable bionic main | tee /etc/a
 # Update apt and install OpenVPN
 apt update && apt install openvpn -y
 
-cd /home/"${SUDO_USER:-$USER}"
 
 # Download & extract EasyRSA
 mkdir /etc/easy-rsa
@@ -43,38 +42,43 @@ set_var EASYRSA_REQ_OU          "RD"
 set_var EASYRSA_KEY_SIZE        2048 #4096
 EOF
 
+cd /home/"${SUDO_USER:-$USER}"
 # Initialize the PKI Structure for EasyRSA
 /etc/easy-rsa/easyrsa init-pki
+sleep 2s
 
 ###NOTE#################
 echo -e "\e[92m First step: \e[0m"
 echo -e "\e[92m   - Enter PEM pass phrase \e[0m"
 echo -e "\e[92m   - press enter at Common Name \e[0m"
 echo
-sleep 5s
 
+sleep 2s
 # Create the CA Certificate
-/etc/easy-rsa/easyrsa build-ca nopass                               # On NEW ubuntu it will ask you to set password  
-                                                                    # press enter at Common Name
+echo {,} | /etc/easy-rsa/easyrsa build-ca nopass                                    # On NEW ubuntu it will ask you to set password  
+sleep 25s
+                                                                                    # press enter at Common Name
 ###NOTE#################
 echo -e "\e[92m Next step: \e[0m"
 echo -e "\e[92m   - press enter at Common Name \e[0m"
 echo -e "\e[92m   - on NEW ubuntu set password \e[0m"
 echo
-sleep 5s
 
 # Create your OpenVPN server certificate request, sign the request, and generate the key and copy to OpenVPN
-/etc/easy-rsa/easyrsa gen-req "$COMPANY"-vpn nopass                     # press enter at Common Name
-sleep 5s
-echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn nopass       # type yes
-                                                                     # On NEW ubuntu it will ask you to set password
-sleep 10s
+echo {,} | /etc/easy-rsa/easyrsa gen-req "$COMPANY"-vpn nopass                      # press enter at Common Name
+sleep 2s
+echo yes | /etc/easy-rsa/easyrsa sign-req server "$COMPANY"-vpn nopass              # type yes
+                                                                                    # On NEW ubuntu it will ask you to set password
+sleep 20s
 cp /home/"${SUDO_USER:-$USER}"/{pki/issued/"$COMPANY"-vpn.crt,pki/private/"$COMPANY"-vpn.key,pki/ca.crt} /etc/openvpn/
-sleep 5s
 
 # Create the Encryption Key that will be used during the key exchange, create a HMAC signature to further strengthen TLS in OpenVPN
-/etc/easy-rsa/easyrsa gen-dh                                         # this can take up to 10-15 min
+/etc/easy-rsa/easyrsa gen-dh                                                        # this can take up to 10-15 min
+sleep 2s
+
 /etc/easy-rsa/easyrsa gen-crl
+sleep 20s
+
 cp /home/"${SUDO_USER:-$USER}"/pki/crl.pem /etc/openvpn/
 openvpn --genkey --secret "/home/${SUDO_USER:-$USER}/ta.key"
 cp /home/"${SUDO_USER:-$USER}"/ta.key /etc/openvpn
@@ -94,7 +98,7 @@ cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/
 ###################################
 
 cp /home/"${SUDO_USER:-$USER}"/{ta.key,pki/ca.crt} /etc/openvpn/client-configs/keys/
-groupadd nobody                                                     # if you use nobody group in config this must be applyed
+groupadd nobody                                                                    # if you use nobody group in config this must be applyed
 
 cat <<EOF > /etc/openvpn/"$COMPANY"-vpn.conf
 ;local a.b.c.d
@@ -105,8 +109,8 @@ proto udp
 dev tun
 ;dev-node MyTap
 ca ca.crt
-cert "$COMPANY"-vpn.crt
-key "$COMPANY"-vpn.key 
+cert $COMPANY-vpn.crt
+key $COMPANY-vpn.key 
 dh dh.pem
 ;topology subnet
 server 10.8.0.0 255.255.255.0
@@ -229,7 +233,7 @@ echo "Generating new Certificate Revocation List (CRL)."
 cd \$EASYRSA_DIR
 /etc/easy-rsa/easyrsa gen-crl
 cp \$EASYRSA_DIR/pki/crl.pem \$OPENVPN_DIR/crl.pem
-systemctl restart openvpn@"$COMPANY"-vpn
+systemctl restart openvpn@$COMPANY-vpn
 
 sleep 5
 
@@ -271,8 +275,8 @@ cp \$EASYRSA_DIR/pki/crl.pem \$OPENVPN_DIR/
 
 echo "Restarting VPN service to update CRL"
 
-systemctl restart openvpn@"$COMPANY"-vpn
-echo -e "\e[92m OpenVPN is \$(systemctl is-enabled openvpn@"$COMPANY"-vpn) and \$(systemctl is-active openvpn@"$COMPANY"-vpn). \e[0m"
+systemctl restart openvpn@$COMPANY-vpn
+echo -e "\e[92m OpenVPN is \$(systemctl is-enabled openvpn@$COMPANY-vpn) and \$(systemctl is-active openvpn@$COMPANY-vpn). \e[0m"
 
 sleep 5
 
@@ -309,5 +313,5 @@ sleep 2s
 # Create user
 /root/create_vpn_user "$ADMINUSER"
 
-echo -e "\e[92m OpenVPN is $(systemctl is-enabled openvpn@"$COMPANY"-vpn) and $(systemctl is-active openvpn@"$COMPANY"-vpn). \e[0m"
+echo -e "\e[92m OpenVPN is $(systemctl is-enabled openvpn@$COMPANY-vpn) and $(systemctl is-active openvpn@$COMPANY-vpn). \e[0m"
 sleep 3s
