@@ -196,8 +196,9 @@ Choose an option:  "
     6)
         clear;
         fn_openvpn
-        $(yellowprint "$SPLIT");
+        clear;
         echo "***** Here is your link which holds configuration for open vpn *****";
+        echo
         cat /home/"${SUDO_USER:-$USER}"/vpn-client-link | sed 's/,/\n/g' | head -n 1 | sed 's/."//';
         sub-submenu
         ;;
