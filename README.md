@@ -37,6 +37,8 @@ sudo bash installer.sh
 
 ### Bootstrap scripts to choose from
 
+<hr>
+
 <details><summary>SIMPLE Install</summary>
 <p>
 
