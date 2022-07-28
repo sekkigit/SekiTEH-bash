@@ -28,7 +28,7 @@ sudo bash installer.sh
 
 
 # Bootstrap scripts to choose from
-------------------------
+
 <details><summary>SIMPLE Install</summary>
 <p>
 
@@ -40,7 +40,7 @@ sudo bash installer.sh
 
 </p>
 </details>
-------------------------
+
 <details><summary>BASIC Install</summary>
 <p>
 
@@ -55,7 +55,7 @@ sudo bash installer.sh
 
 </p>
 </details>
-------------------------
+
 <details><summary>FULL Install</summary>
 <p>
 
