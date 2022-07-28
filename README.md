@@ -17,7 +17,7 @@ sudo bash installer.sh
 ```
 <hr>
 
-# Script can install: 
+#### Install: 
 
 | Program | Description |
 | --- | --- |
@@ -35,7 +35,7 @@ sudo bash installer.sh
 
 <hr>
 
-### Bootstrap scripts to choose from
+#### Bootstrap scripts to choose from
 
 <hr>
 
