@@ -27,8 +27,8 @@ sudo bash installer.sh
 | UFW | Enable and edit rules in UFW firewall. |
 
 
-# Bootstrap scripts to choose from
-
+### Bootstrap scripts to choose from
+---
 <details><summary>SIMPLE Install</summary>
 <p>
 
@@ -40,7 +40,7 @@ sudo bash installer.sh
 
 </p>
 </details>
-
+---
 <details><summary>BASIC Install</summary>
 <p>
 
@@ -55,7 +55,7 @@ sudo bash installer.sh
 
 </p>
 </details>
-
+---
 <details><summary>FULL Install</summary>
 <p>
 
@@ -72,7 +72,7 @@ sudo bash installer.sh
 
 </p>
 </details>
-
+---
 <details><summary>Warning</summary>
 <p>
 
@@ -82,3 +82,4 @@ I do my best to keep up with the latest changes and releases, but please underst
 
 </p>
 </details>
+---
