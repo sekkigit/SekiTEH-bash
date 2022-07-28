@@ -200,6 +200,7 @@ Choose an option:  "
         echo "***** Here is your link which holds configuration for open vpn *****";
         echo
         cat /home/"${SUDO_USER:-$USER}"/vpn-client-link | sed 's/,/\n/g' | head -n 1 | sed 's/."//';
+        rm /home/"${SUDO_USER:-$USER}"/vpn-client-link &> /dev/null
         sub-submenu
         ;;
     7)
@@ -236,17 +237,17 @@ Choose an option:  "
     1)
         clear;
         fn_basic
-        sub2-submenu
+        mainmenu
         ;;
     2)
         clear;
         fn_simple
-        sub2-submenu
+        mainmenu
         ;;
     3)
         clear;
         fn_full
-        sub2-submenu
+        mainmenu
         ;;
     4)
         clear;
