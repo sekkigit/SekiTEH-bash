@@ -199,8 +199,8 @@ Choose an option:  "
         clear;
         echo "***** Here is your link which holds configuration for open vpn *****";
         echo
-        cat /home/"${SUDO_USER:-$USER}"/vpn-client-link | sed 's/,/\n/g' | head -n 1 | sed 's/."//';
-        rm /home/"${SUDO_USER:-$USER}"/vpn-client-link &> /dev/null;
+        cat /root/vpn-client-link | sed 's/,/\n/g' | head -n 1;
+        rm /root/vpn-client-link &> /dev/null;
         sub-submenu
         ;;
     7)
