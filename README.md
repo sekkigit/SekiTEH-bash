@@ -5,7 +5,6 @@
   <img width="500" height="500" src="https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/works/5.jpg?raw=true">
 </p>
 
-<hr>
 <p align="right">COPY
 </p>
 
@@ -15,7 +14,6 @@ sudo apt install git -y
 git clone https://github.com/sekkigit/custom_homelab.git install && cd install
 sudo bash installer.sh
 ```
-<hr>
 
 #### Install: 
 
@@ -33,11 +31,9 @@ sudo bash installer.sh
 | Basic apps | Install Nano, Btop, Cron. |
 | UFW | Enable and edit rules in UFW firewall. |
 
-<hr>
 
 #### Bootstrap scripts to choose from
 
-<hr>
 
 <details><summary>SIMPLE Install</summary>
 <p>
@@ -51,7 +47,6 @@ sudo bash installer.sh
 </p>
 </details>
 
-<hr>
 
 <details><summary>BASIC Install</summary>
 <p>
@@ -68,7 +63,6 @@ sudo bash installer.sh
 </p>
 </details>
 
-<hr>
 
 <details><summary>FULL Install</summary>
 <p>
@@ -87,7 +81,6 @@ sudo bash installer.sh
 </p>
 </details>
 
-<hr>
 
 <details><summary>Warning</summary>
 <p>
@@ -98,5 +91,3 @@ I do my best to keep up with the latest changes and releases, but please underst
 
 </p>
 </details>
-
-<hr>
