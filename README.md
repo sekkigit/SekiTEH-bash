@@ -27,15 +27,24 @@ sudo bash installer.sh
 | UFW | Enable and edit rules in UFW firewall. |
 
 
-# There are tree bootstrap scripts to choose from
+# Bootstrap scripts to choose from
 ------------------------
-SIMPLE Install
+<details><summary>SIMPLE Install</summary>
+<p>
+
+#### Create envirement for docker containers.
   - Nano
   - Btop
   - Cron
-  - Docker
+  - Docker1
+
+</p>
+</details>
 ------------------------
-BASIC Install
+<details><summary>BASIC Install</summary>
+<p>
+
+#### Create envirement for docker containers with basic protection and monitoring.
   - Nano
   - Btop
   - Cron
@@ -43,8 +52,14 @@ BASIC Install
   - Crowdsec
   - Cockpit
   - UFW
+
+</p>
+</details>
 ------------------------
-FULL Install
+<details><summary>FULL Install</summary>
+<p>
+
+#### Create envirement for docker containers with file sharing, media sharing, basic protection and monitoring.
   - Nano
   - Btop
   - Cron
@@ -54,6 +69,9 @@ FULL Install
   - UFW
   - Samba
   - Plex
+
+</p>
+</details>
 
 <details><summary>Warning</summary>
 <p>
