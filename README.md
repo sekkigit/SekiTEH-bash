@@ -9,9 +9,7 @@
 </p>
 
 ```
-sudo apt update
-sudo apt install git -y
-git clone https://github.com/sekkigit/custom_homelab.git install && cd install
+git clone https://github.com/sekkigit/SekiTEH-bash.git install && cd install
 sudo bash installer.sh
 ```
 
