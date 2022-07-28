@@ -28,7 +28,9 @@ sudo bash installer.sh
 
 
 ### Bootstrap scripts to choose from
-# ________________________________________________
+
+<hr>
+
 <details><summary>SIMPLE Install</summary>
 <p>
 
@@ -40,7 +42,8 @@ sudo bash installer.sh
 
 </p>
 </details>
-# ________________________________________________
+
+<hr>
 
 <details><summary>BASIC Install</summary>
 <p>
@@ -56,7 +59,8 @@ sudo bash installer.sh
 
 </p>
 </details>
-# ________________________________________________
+
+<hr>
 
 <details><summary>FULL Install</summary>
 <p>
@@ -74,7 +78,8 @@ sudo bash installer.sh
 
 </p>
 </details>
-# ________________________________________________
+
+<hr>
 
 <details><summary>Warning</summary>
 <p>
@@ -85,4 +90,5 @@ I do my best to keep up with the latest changes and releases, but please underst
 
 </p>
 </details>
-# ________________________________________________
+
+<hr>
