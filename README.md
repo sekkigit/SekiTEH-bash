@@ -4,12 +4,16 @@
   <img width="500" height="500" src="https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/works/5.jpg?raw=true">
 </p>
 
+<hr>
+
 ```
 sudo apt update
 sudo apt install git -y
 git clone https://github.com/sekkigit/custom_homelab.git install && cd install
 sudo bash installer.sh
 ```
+<hr>
+
 # Script can install: 
 
 | Program | Description |
@@ -26,10 +30,9 @@ sudo bash installer.sh
 | Basic apps | Install Nano, Btop, Cron. |
 | UFW | Enable and edit rules in UFW firewall. |
 
+<hr>
 
 ### Bootstrap scripts to choose from
-
-<hr>
 
 <details><summary>SIMPLE Install</summary>
 <p>
