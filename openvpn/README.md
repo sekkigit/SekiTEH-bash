@@ -5,11 +5,11 @@
   <img width="500" height="500" src="https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/works/6.jpg?raw=true">
 </p>
 
-<p align="right">COPY
-</p>
-
 This is a OpenVPN installation that can be used with Ubuntu 20.04 (fully automated) and Ubuntu 22.04 LTS (PEM pass input needed), also create a vpn-user and send client config wia the one time link.
 Run as normal user but apply "sudo" on a bash script.
+
+<p align="right">COPY
+</p>
 
 ```
 git clone https://github.com/sekkigit/custom_homelab.git install && cd install/openvpn
