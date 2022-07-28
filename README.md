@@ -12,7 +12,7 @@ sudo bash installer.sh
 ```
 # Script can install: 
 
-   - OpenVPN --------------> create a vpn server with user and SSL certificate
+   - OpenVPN --------------> create a vpn server with vpn-user
    - Samba ----------------> enables Linux / Unix machines to communicate with Windows machines in a network.
    - Cockpit --------------> graphical interface to administer servers
    - CrowdSec -------------> analyze behaviors, respond to attacks & share signals across the community
@@ -53,6 +53,14 @@ FULL Install
   - Samba
   - Plex
 
-# Warning
+<details><summary>Warning</summary>
+<p>
 
-⚠️ Please beware that products can change over time. I do my best to keep up with the latest changes and releases, but please understand that this won’t always be the case.
+#### ⚠️ Please beware that products can change over time.
+
+```ruby
+   puts "I do my best to keep up with the latest changes and releases, but please understand that this won’t always be the case."
+```
+
+</p>
+</details>
