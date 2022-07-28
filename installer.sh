@@ -196,7 +196,6 @@ Choose an option:  "
     6)
         clear;
         fn_openvpn
-        clear;
         sub-submenu
         ;;
     7)
