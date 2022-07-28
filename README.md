@@ -38,7 +38,7 @@ sudo bash installer.sh
 <details><summary>SIMPLE Install</summary>
 <p>
 
-#### Create envirement for docker containers.
+#### Create environment for docker containers.
   - Nano
   - Btop
   - Cron
@@ -51,7 +51,7 @@ sudo bash installer.sh
 <details><summary>BASIC Install</summary>
 <p>
 
-#### Create envirement for docker containers with basic protection and monitoring.
+#### Create environment for docker containers with basic protection and monitoring.
   - Nano
   - Btop
   - Cron
@@ -67,7 +67,7 @@ sudo bash installer.sh
 <details><summary>FULL Install</summary>
 <p>
 
-#### Create envirement for docker containers with file sharing, media sharing, basic protection and monitoring.
+#### Create environment for docker containers with file sharing, media sharing, basic protection and monitoring.
   - Nano
   - Btop
   - Cron
