@@ -200,7 +200,8 @@ Choose an option:  "
         echo "***** Here is your link which holds configuration for open vpn *****";
         echo
         cat /home/"${SUDO_USER:-$USER}"/vpn-client-link | sed 's/,/\n/g' | head -n 1 | sed 's/."//';
-        rm /home/"${SUDO_USER:-$USER}"/vpn-client-link &> /dev/null
+        echo "vpn-config stored in \$OUTPUT_DIR/\$VPNUSER.ovpn.gz";
+        rm /home/"${SUDO_USER:-$USER}"/vpn-client-link &> /dev/null;
         sub-submenu
         ;;
     7)
