@@ -1,13 +1,8 @@
 # Installer
 ### For Ubuntu 22.04 LTS (minimized install)
 
-
-
 https://user-images.githubusercontent.com/96924112/181740725-fa98c0fc-8bf5-4bef-994c-c06c902b84a8.mp4
 
-
-<p align="right">COPY
-</p>
 
 ```
 git clone https://github.com/sekkigit/SekiTEH-bash.git install && cd install
