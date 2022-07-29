@@ -1,11 +1,10 @@
 # Installer
 ### For Ubuntu 22.04 LTS (minimized install)
 
-[![Quick sneak peek](https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/tumb.jpg?raw=true)](https://youtu.be/EmNSEuNRRds "Installation - Click to Watch!")
 
-<p align="center">
-  <img width="500" height="500" src="https://github.com/sekkigit/porfolio.sekiteh/blob/gh-pages/img/works/5.jpg?raw=true">
-</p>
+
+https://user-images.githubusercontent.com/96924112/181740725-fa98c0fc-8bf5-4bef-994c-c06c902b84a8.mp4
+
 
 <p align="right">COPY
 </p>
