@@ -1,6 +1,8 @@
 # Installer
 ### For Ubuntu 22.04 LTS (minimized install)
 
+In this short video you can see the installation process of this script for "Basic install" and OpenVPN installation with SSL certificate, user and configuration download link.
+
 https://user-images.githubusercontent.com/96924112/181740725-fa98c0fc-8bf5-4bef-994c-c06c902b84a8.mp4
 
 
